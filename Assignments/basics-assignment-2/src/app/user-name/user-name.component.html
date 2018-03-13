@@ -9,7 +9,8 @@
     </div>
     <div class="col-xs-12">
       <button class="btn btn-primary" 
-        [disabled]="userNameIsEmpty()">
+        [disabled]="userNameIsEmpty()"
+        (click)="onClearUserName()">
         Clear User Name
       </button>
     </div>

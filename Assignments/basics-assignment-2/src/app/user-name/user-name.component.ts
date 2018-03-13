@@ -17,4 +17,7 @@ export class UserNameComponent implements OnInit {
     return this.userName === '';
   }
 
+  onClearUserName() {
+    this.userName = '';
+  }
 }
