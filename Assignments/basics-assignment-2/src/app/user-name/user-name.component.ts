@@ -13,4 +13,8 @@ export class UserNameComponent implements OnInit {
   ngOnInit() {
   }
 
+  userNameIsEmpty() {
+    return this.userName === '';
+  }
+
 }

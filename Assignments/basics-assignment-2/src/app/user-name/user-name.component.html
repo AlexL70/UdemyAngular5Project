@@ -7,5 +7,11 @@
           [(ngModel)]="userName">
         <p>User name is "{{userName}}"</p>
     </div>
+    <div class="col-xs-12">
+      <button class="btn btn-primary" 
+        [disabled]="userNameIsEmpty()">
+        Clear User Name
+      </button>
+    </div>
   </div>
 </div>
