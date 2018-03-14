@@ -1,3 +1,17 @@
-<p>
-  logging-toggler works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <button class="btn btn-primary"
+        (click)="toggleParagraph()">
+        Display details
+      </button>
+      <hr>
+    </div>
+    <div class="col-xs-6" *ngIf="showParagraph">
+      <h3>Details</h3>
+      <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec neque eget odio congue eleifend. Nunc faucibus quam vel elit dapibus congue. Fusce vel mauris pharetra, porttitor sem ac, dapibus magna. In hac habitasse platea dictumst. Nulla facilisi. Nullam ut velit nunc. Ut quis commodo ligula. Duis convallis vel neque eu blandit. Integer posuere ipsum urna. Fusce quis diam sapien.
+      </p>
+    </div>
+  </div>
+</div>

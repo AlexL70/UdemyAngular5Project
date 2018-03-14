@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logging-toggler.component.css']
 })
 export class LoggingTogglerComponent implements OnInit {
+  showParagraph = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleParagraph() {
+    this.showParagraph = !this.showParagraph;
   }
 
 }
