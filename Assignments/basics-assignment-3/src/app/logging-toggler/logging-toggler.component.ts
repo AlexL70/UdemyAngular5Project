@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoggingTogglerComponent implements OnInit {
   showParagraph = false;
   count = 0;
-  logArr: LogRec[] = [];
+  logArr: Date[] = [];
 
   constructor() { }
 
@@ -17,23 +17,15 @@ export class LoggingTogglerComponent implements OnInit {
 
   toggleParagraph() {
     this.showParagraph = !this.showParagraph;
-    const rec = new LogRec();
-    rec.id = ++this.count;
-    rec.stamp = new Date();
-    this.logArr.push(rec);
+    this.logArr.push(new Date);
   }
 
   getColor(id: number) {
-    if (id >= 5) {
+    if (id >= 4) {
       return 'blue';
     } else {
       return 'default';
     }
   }
 
-}
-
-export class LogRec {
-  id: number;
-  stamp: Date;
 }
