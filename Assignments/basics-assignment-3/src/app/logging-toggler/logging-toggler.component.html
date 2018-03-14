@@ -6,6 +6,11 @@
         Display details
       </button>
       <hr>
+      <ul>
+        <li *ngFor="let lgRec of logArr">
+          Details toggled at {{ lgRec.stamp }}
+        </li>
+      </ul>
     </div>
     <div class="col-xs-6" *ngIf="showParagraph">
       <h3>Details</h3>
