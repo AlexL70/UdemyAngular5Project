@@ -23,6 +23,14 @@ export class LoggingTogglerComponent implements OnInit {
     this.logArr.push(rec);
   }
 
+  getColor(id: number) {
+    if (id >= 5) {
+      return 'blue';
+    } else {
+      return 'default';
+    }
+  }
+
 }
 
 export class LogRec {

@@ -7,7 +7,9 @@
       </button>
       <hr>
       <ul>
-        <li *ngFor="let lgRec of logArr">
+        <li *ngFor="let lgRec of logArr"  
+          [ngStyle]="{ backgroundColor: getColor(lgRec.id)}"
+          [ngClass]="{ afterFive: lgRec.id >= 5}">
           Details toggled at {{ lgRec.stamp }}
         </li>
       </ul>
