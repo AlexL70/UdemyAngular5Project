@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { LoggingTogglerComponent } from './logging-toggler/logging-toggler.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoggingTogglerComponent
   ],
   imports: [
     BrowserModule,
