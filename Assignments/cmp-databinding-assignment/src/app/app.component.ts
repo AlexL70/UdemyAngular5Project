@@ -11,4 +11,8 @@ export class AppComponent {
   onNumberAdded(event: {num: number}) {
     this.components.push(event.num);
   }
+
+  onStartGame() {
+    this.components = [];
+  }
 }

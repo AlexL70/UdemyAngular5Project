@@ -9,9 +9,10 @@ import { OddComponent } from '../odd/odd.component';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  private gameStarted = false;
+  private gameIsStarted = false;
   private timerRef: NodeJS.Timer;
   @Output() elementCreated = new EventEmitter<{num: number}>();
+  @Output() gameStarted = new EventEmitter<{}>();
   private counter;
 
   emitComponent = function(emitter: EventEmitter<{num: number}>) {
@@ -23,14 +24,17 @@ export class GameControlComponent implements OnInit {
   };
 
   startGame() {
-    this.counter = undefined;
-    this.gameStarted = true;
+    this.gameIsStarted = true;
+    this.gameStarted.emit({});
     this.timerRef = setInterval( this.emitComponent, 1000, this.elementCreated);
   }
 
   stopGame() {
-    this.gameStarted = false;
+    this.gameIsStarted = false;
     clearInterval(this.timerRef);
+    setTimeout(function() {
+      this.counter = 0;
+    }, 1);
   }
 
   constructor() { }
