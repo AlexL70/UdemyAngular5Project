@@ -22,9 +22,13 @@
       <app-game-control (elementCreated)="onNumberAdded($event)"></app-game-control>
     </div>
   </div>
-  <hr>
-  <div class="row" *ngFor="let cmpNum of components">
-    <app-even *ngIf="cmpNum % 2 === 0" [num]="cmpNum"></app-even>
-    <app-odd *ngIf="cmpNum % 2 === 1" [num]="cmpNum"></app-odd>
-  </div>
 </div>
+<hr>
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let cmpNum of components">
+        <app-even *ngIf="cmpNum % 2 === 0" [num]="cmpNum"></app-even>
+        <app-odd *ngIf="cmpNum % 2 === 1" [num]="cmpNum"></app-odd>
+      </div>
+    </div>
+</div>    
