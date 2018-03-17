@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private components: number[] = [];
+
+  onNumberAdded(event: {num: number}) {
+    this.components.push(event.num);
+  }
 }
