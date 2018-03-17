@@ -1,3 +1,16 @@
-<p>
-  game-control works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <button class="btn btn-primary" 
+      [disabled]="gameStarted"
+      (click)="startGame()">
+      Start Game
+    </button>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-warning" 
+      [disabled]="!gameStarted"
+      (click)="stopGame()">
+      Stop Game
+    </button>
+  </div>
+</div>
