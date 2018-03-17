@@ -7,14 +7,21 @@ import { tick } from '@angular/core/testing';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  gameStarted = false;
+  private gameStarted = false;
+  private timerRef: NodeJS.Timer;
+
+  emitComponent = function() {
+    console.log('I\'m emitting somethign...');
+  };
 
   startGame() {
     this.gameStarted = true;
+    this.timerRef = setInterval( this.emitComponent, 1000);
   }
 
   stopGame() {
     this.gameStarted = false;
+    clearInterval(this.timerRef);
   }
 
   constructor() { }
