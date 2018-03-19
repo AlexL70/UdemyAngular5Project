@@ -10,7 +10,7 @@ import { OddComponent } from '../odd/odd.component';
 })
 export class GameControlComponent implements OnInit {
   private gameIsStarted = false;
-  private timerRef: NodeJS.Timer;
+  private timerRef;
   @Output() elementCreated = new EventEmitter<{num: number}>();
   @Output() gameStarted = new EventEmitter<{}>();
   private counter;
