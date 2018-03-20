@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation, OnChanges,
   SimpleChanges,  DoCheck, AfterContentInit, AfterContentChecked,
-  AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef} from '@angular/core';
+  AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef, ContentChild} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -15,6 +15,7 @@ export class ServerElementComponent implements
   @Input('srvElement') public element: { type: string, name: string, content: string };
   @Input() public name: string;
   @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') paragraph: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -24,6 +25,7 @@ export class ServerElementComponent implements
     console.log('ngOnInit called!');
     //  Here HTML DOM elements of the component are not available (not initialized yet)
     console.log(`Text content: ${(<HTMLDivElement>this.header.nativeElement).textContent}`);
+    console.log(`Text content of paragraph: ${this.paragraph.nativeElement.textContent}`);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -37,6 +39,7 @@ export class ServerElementComponent implements
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called!');
+    console.log(`Text content of paragraph: ${this.paragraph.nativeElement.textContent}`);
   }
 
   ngAfterContentChecked() {
