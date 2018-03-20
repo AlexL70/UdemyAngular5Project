@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation, OnChanges,
   SimpleChanges,  DoCheck, AfterContentInit, AfterContentChecked,
-  AfterViewInit, AfterViewChecked, OnDestroy} from '@angular/core';
+  AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -14,6 +14,7 @@ export class ServerElementComponent implements
   // tslint:disable-next-line:no-input-rename
   @Input('srvElement') public element: { type: string, name: string, content: string };
   @Input() public name: string;
+  @ViewChild('heading') header: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -21,6 +22,8 @@ export class ServerElementComponent implements
 
   ngOnInit() {
     console.log('ngOnInit called!');
+    //  Here HTML DOM elements of the component are not available (not initialized yet)
+    console.log(`Text content: ${(<HTMLDivElement>this.header.nativeElement).textContent}`);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -42,6 +45,8 @@ export class ServerElementComponent implements
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called!');
+    //  Here HTML DOM elements of the component are available (initialized)
+    console.log(`Text content: ${(<HTMLDivElement>this.header.nativeElement).textContent}`);
   }
 
   ngAfterViewChecked() {
