@@ -24,7 +24,11 @@
         </div>
       </ul>
       <p appBasicHighlight>Style me with the basic directive!</p>
-      <p appBetterHighlight>Style me with the better dirrective!</p>
+      <p [appBetterHighlight]="'black'"
+        defaultColor="red"
+        [defaultBackgroundColor]="'yellow'"
+        [highlightColor]="'white'"
+      >Style me with the better dirrective!</p>
     </div>
   </div>
 </div>
