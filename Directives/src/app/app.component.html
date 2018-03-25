@@ -14,14 +14,28 @@
             *ngFor="let odd of oddNumbers">{{ odd }}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
+        <!-- <div *ngIf="!onlyOdd">
           <li
             class="list-group-item"
             [ngClass]="{odd: even % 2 !== 0}"
             [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent' }"
             *ngFor="let even of evenNumbers">{{ even }}
           </li>  
-        </div>
+        </div> -->
+        <!-- this ng-template fragment does exactly the same as previous
+        commented out *ngIf directive. Actually *ngIf Structural Directive
+        is transformed by Angular compiler into ng-template directive 
+        begind the scene -->
+        <ng-template [ngIf]="!onlyOdd">
+          <div>
+            <li
+              class="list-group-item"
+              [ngClass]="{odd: even % 2 !== 0}"
+              [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent' }"
+              *ngFor="let even of evenNumbers">{{ even }}
+            </li>
+          </div>
+        </ng-template>
       </ul>
       <p appBasicHighlight>Style me with the basic directive!</p>
       <p [appBetterHighlight]="'black'"
