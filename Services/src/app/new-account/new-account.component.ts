@@ -5,8 +5,8 @@ import { AccountsService } from '../account.service';
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
-  styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
+  styleUrls: ['./new-account.component.css']//,
+  //  providers: [LoggingService]
 })
 export class NewAccountComponent {
   constructor(private logServ: LoggingService, private accountsService: AccountsService) {}
