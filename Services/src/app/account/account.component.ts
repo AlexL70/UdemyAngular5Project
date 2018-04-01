@@ -15,7 +15,8 @@ export class AccountComponent {
   constructor(private logServ: LoggingService, private accountsService: AccountsService) {}
 
   onSetTo(status: string) {
-    this.accountsService.updateStatus(this.id, status)
+    this.accountsService.updateStatus(this.id, status);
+    this.accountsService.statusUpdated.emit(status);
     // this.logServ.logStatusChange(status);
   }
 }
