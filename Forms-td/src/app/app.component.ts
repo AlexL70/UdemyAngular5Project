@@ -18,5 +18,6 @@ export class AppComponent {
     console.log(`User Name: ${this.signupForm.value['username']}`);
     console.log(`Email: ${this.signupForm.value['email']}`);
     console.log(`Secret: ${this.signupForm.value['secret']}`);
+    console.log(`Valid: ${this.signupForm.valid}`);
   }
 }
