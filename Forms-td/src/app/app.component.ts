@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   @ViewChild('frm') signupForm: NgForm;
   defaultQuestion = 'pet';
+  answer: string;
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -19,6 +20,7 @@ export class AppComponent {
     console.log(`User Name: ${this.signupForm.value['username']}`);
     console.log(`Email: ${this.signupForm.value['email']}`);
     console.log(`Secret: ${this.signupForm.value['secret']}`);
+    console.log(`Answer: ${this.signupForm.value['questionAnswer']}`);
     console.log(`Valid: ${this.signupForm.valid}`);
   }
 }
