@@ -16,6 +16,7 @@
             ngModel name="email"
             required email>
           </div>
+          <!-- <p *ngIf="">Please add a valid email.</p> -->
         </div>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
@@ -24,7 +25,8 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit"
+          [disabled]="!frm.valid">Submit</button>
       </form>
     </div>
   </div>
