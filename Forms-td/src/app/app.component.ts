@@ -16,9 +16,9 @@ export class AppComponent {
   }
 
   onSubmit() {
-    //  console.log(form);
-    console.log(`User Name: ${this.signupForm.value['username']}`);
-    console.log(`Email: ${this.signupForm.value['email']}`);
+    console.log(this.signupForm);
+    console.log(`User Name: ${this.signupForm.value['userData']['username']}`);
+    console.log(`Email: ${this.signupForm.value['userData']['email']}`);
     console.log(`Secret: ${this.signupForm.value['secret']}`);
     console.log(`Answer: ${this.signupForm.value['questionAnswer']}`);
     console.log(`Valid: ${this.signupForm.valid}`);
