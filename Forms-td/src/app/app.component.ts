@@ -10,6 +10,7 @@ export class AppComponent {
   @ViewChild('frm') signupForm: NgForm;
   defaultQuestion = 'pet';
   answer: string;
+  genders = ['male', 'female'];
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -21,6 +22,7 @@ export class AppComponent {
     console.log(`Email: ${this.signupForm.value['userData']['email']}`);
     console.log(`Secret: ${this.signupForm.value['secret']}`);
     console.log(`Answer: ${this.signupForm.value['questionAnswer']}`);
+    console.log(`Gender: ${this.signupForm.value['gender']}`);
     console.log(`Valid: ${this.signupForm.valid}`);
   }
 }
