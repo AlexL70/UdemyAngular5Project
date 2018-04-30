@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  readonly subscriptionTypes = ['Basic', 'Advanced', 'Pro'];
+  readonly defaultSubscription = 'Advanced';
 
+  onSubmit(): void {
+    console.log(`Submit!`);
+  }
 }
