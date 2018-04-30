@@ -18,18 +18,23 @@
             <label for="email">Email address:</label>
             <input type="email" id="email" class="form-control" name="email"
               ngModel required #email="ngModel">
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email address.</span>
             <label for="subscriptionType">Subscription type:</label>
             <select id="subscriptionType" class="form-control" [ngModel]="defaultSubscription" name="subscriptionType"
               #subscriptionType="ngModel">
               <option *ngFor="let subsType of subscriptionTypes" [value]="subsType">{{ subsType }}</option>
             </select>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" class="form-control" ngModel required #password="ngModel">
+            <input type="password" id="passowrd" name="passowrd" 
+              class="form-control" ngModel required
+              #passowrd="ngModel">
+            <span class="help-block" *ngIf="!passowrd.valid && passowrd.touched">Password is required.</span>
         </div>
         <button class="btn btn-primary" type="submit"
           [disabled]="!frm.valid">
           Submit
         </button>
+        <span class="help-block" *ngIf="!frm.valid && frm.touched">Some values are invalid. Please fix.</span>
       </form>
     </div>
   </div>
