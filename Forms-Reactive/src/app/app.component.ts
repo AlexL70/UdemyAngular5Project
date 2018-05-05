@@ -33,8 +33,7 @@ export class AppComponent implements OnInit {
 
   forbiddenNamesValidator(control: FormControl): {[s: string]: boolean} {
     if ( this.forbiddenUsernames.indexOf(control.value) >= 0) {
-      const message = `Name ${control.value} is forbidden. Choose another one`;
-      return { message : true };
+      return { 'nameIsForbidden' : true };
     }
     return null;
   }
