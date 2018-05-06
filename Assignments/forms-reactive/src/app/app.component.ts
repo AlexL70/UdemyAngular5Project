@@ -10,6 +10,12 @@ import { Observer } from 'rxjs';
 export class AppComponent implements OnInit {
   projectStatuses: string[] = ['Stable', 'Critical', 'Finished'];
   projectForm: FormGroup;
+  submitted = false;
+  project = {
+    name: '',
+    email: '',
+    status: ''
+  };
 
   ngOnInit() {
     this.projectForm = new FormGroup({
@@ -22,7 +28,11 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log( this.projectForm);
+    this.project.name = this.projectForm.get('projectName').value;
+    this.project.email = this.projectForm.get('mail').value;
+    this.project.status = this.projectForm.get('status').value;
+    this.submitted = true;
+    this.projectForm.reset({status: 'Stable'});
   }
 
   projectNameValidator(control: FormControl): {[s: string]: boolean} {
