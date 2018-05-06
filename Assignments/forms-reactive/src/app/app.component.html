@@ -26,11 +26,11 @@
         <span
           *ngIf="!projectForm.get('projectName').valid && projectForm.get('projectName').touched">
           <span class="help-block"
-            *ngIf="projectForm.get('projectName').errors['required']">
+            *ngIf="projectForm.get('projectName').errors && projectForm.get('projectName').errors['required']">
             Project must not be empty.
           </span>
           <span class="help-block"
-            *ngIf="projectForm.get('projectName').errors['testValue']">
+            *ngIf="projectForm.get('projectName').errors && projectForm.get('projectName').errors['testValue']">
             Value "test" is not allowed as a project name.
           </span>
         </span>
