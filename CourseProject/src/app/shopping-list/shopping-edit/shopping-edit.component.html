@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form (ngSubmit)="submitIngredient()" #ingredientForm="ngForm">
+    <form (ngSubmit)="onSubmitForm()" #ingredientForm="ngForm">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
@@ -31,7 +31,7 @@
             {{ editMode ? 'Update' : 'Add' }}
           </button>
           <button class="btn btn-danger" type="button">Delete</button>
-          <button class="btn btn-primary" type="button">Clear</button>
+          <button class="btn btn-primary" type="button" (click)="onClearForm()">Clear</button>
         </div>
       </div>
     </form>

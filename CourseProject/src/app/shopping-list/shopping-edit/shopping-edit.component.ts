@@ -37,7 +37,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  submitIngredient() {
+  onSubmitForm(): void {
     const newIngredient = new Ingredient(
       this.ingredientForm.value.name,
       this.ingredientForm.value.amount
@@ -52,5 +52,10 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     } else {
       this.shoppingListService.addIngredient(newIngredient);
     }
+  }
+
+  onClearForm(): void {
+    this.editMode = false;
+    this.ingredientForm.reset();
   }
 }
