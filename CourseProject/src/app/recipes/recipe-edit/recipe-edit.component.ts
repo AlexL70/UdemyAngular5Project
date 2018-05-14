@@ -31,7 +31,7 @@ export class RecipeEditComponent implements OnInit {
   private initForm(): void {
     const recipe: Recipe = this.editMode ? this.recipeService.getRecipe(this.id)
       : new Recipe('', '', '', []);
-    let recipeIngredients: FormGroup[] = [];
+    const recipeIngredients: FormGroup[] = [];
     if (recipe.ingredients) {
       for (const ingredient of recipe.ingredients) {
         recipeIngredients.push(
@@ -51,5 +51,14 @@ export class RecipeEditComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.recipeForm.value);
+  }
+
+  onAddIngredient(): void {
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        name: new FormControl(),
+        amount: new FormControl()
+      })
+    );
   }
 }
