@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ServerService } from './server.service';
-import { Server } from 'selenium-webdriver/safari';
+import { Server } from './DTO/server';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { Server } from 'selenium-webdriver/safari';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  servers = [
+  servers: Server[] = [
     {
       name: 'Testserver',
       capacity: 10,
@@ -45,7 +45,7 @@ export class AppComponent {
   onGetServers() {
     this.serverService.getServers()
       .subscribe(
-        (servers: Server[]) => console.log(servers),
+        (servers: Server[]) => this.servers = servers,
         (error) => console.log(error)
       );
   }
