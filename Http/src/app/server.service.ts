@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Server } from './DTO/server';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class ServerService {
@@ -20,7 +21,7 @@ export class ServerService {
 }
 
   getServers(): Observable<Server[]> {
-      return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/data.json')
+      return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/data')
         .map(
             (response: Response) => {
                 const data = response.json();
@@ -30,6 +31,11 @@ export class ServerService {
                 //     server.name = `FETCHED_${server.name}`;
                 // }
                 return data;
+            }
+        ).catch(
+            (error: Response) => {
+                console.log('Error getting servers.');
+                return Observable.throw(error);
             }
         );
   }
