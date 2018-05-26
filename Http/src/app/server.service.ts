@@ -12,9 +12,11 @@ export class ServerService {
       const headers = new Headers({
           'Content-Type': 'application/json'
       });
-      return this.http.post('https://udemynghttp-5d1fc.firebaseio.com/data.json', servers,
-        { headers: headers});
-  }
+    //   return this.http.post('https://udemynghttp-5d1fc.firebaseio.com/data.json', servers,
+    //     { headers: headers});
+    return this.http.put('https://udemynghttp-5d1fc.firebaseio.com/data.json', servers,
+    { headers: headers});
+}
 
   getServers(): Observable<Response> {
       return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/data.json');
