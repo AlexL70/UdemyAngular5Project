@@ -8,6 +8,7 @@ import { Server } from './DTO/server';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  appName = this.serverService.getAppName();
   servers: Server[] = [
     {
       name: 'Testserver',

@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { Server } from './DTO/server';
 
@@ -21,7 +22,7 @@ export class ServerService {
 }
 
   getServers(): Observable<Server[]> {
-      return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/data')
+      return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/data.json')
         .map(
             (response: Response) => {
                 const data = response.json();
@@ -34,9 +35,21 @@ export class ServerService {
             }
         ).catch(
             (error: Response) => {
-                console.log('Error getting servers.');
+                //  console.log('Error getting servers.');
                 return Observable.throw(error);
             }
         );
+  }
+
+  getAppName(): Observable<string> {
+      return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/AppName.json')
+        .map(
+            (response: Response) => {
+                return response.json();
+            }
+        ).catch((error: Response) => {
+            return Observable.throw(error);
+        }
+    );
   }
 }
