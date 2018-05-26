@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ServerService } from './server.service';
+import { Server } from 'selenium-webdriver/safari';
 
 @Component({
   selector: 'app-root',
@@ -44,10 +45,7 @@ export class AppComponent {
   onGetServers() {
     this.serverService.getServers()
       .subscribe(
-        (response) => {
-          const data = response.json();
-          console.log(data);
-        },
+        (servers: Server[]) => console.log(servers),
         (error) => console.log(error)
       );
   }

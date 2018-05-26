@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 import { Server } from './DTO/server';
 import { Observable } from 'rxjs';
@@ -18,7 +19,13 @@ export class ServerService {
     { headers: headers});
 }
 
-  getServers(): Observable<Response> {
-      return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/data.json');
+  getServers(): Observable<Server[]> {
+      return this.http.get('https://udemynghttp-5d1fc.firebaseio.com/data.json')
+        .map(
+            (response: Response) => {
+                const data = response.json();
+                return data;
+            }
+        );
   }
 }
