@@ -11,10 +11,14 @@ import { DataStorageService } from '../shared/data-storage.service';
 export class HeaderComponent {
     constructor(private dataStorage: DataStorageService) {}
 
-    onSaveData() {
+    onSaveData(): void {
         this.dataStorage.storeRecipes().subscribe(
             (response: Response) => console.log(response),
             (error: Response) => console.log(error)
         );
+    }
+
+    onGetData(): void {
+        this.dataStorage.getRecipes();
     }
 }
