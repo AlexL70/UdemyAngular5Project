@@ -3,13 +3,13 @@ import { StaticInjector } from '@angular/core/src/di/injector';
 
 export class AuthService {
     token: string;
-    signupUser(email: string, password: string) {
+    signupUser(email: string, password: string): void {
         firebase.auth().createUserWithEmailAndPassword( email, password)
             //  .then((response: Response) => console.log(response))
             .catch(error => console.log(error));
     }
 
-    signinUser(email: string, password: string) {
+    signinUser(email: string, password: string): void {
         firebase.auth().signInWithEmailAndPassword( email, password)
             .then((response: Response) => {
                 firebase.auth().currentUser.getIdToken().then(
@@ -19,10 +19,14 @@ export class AuthService {
             .catch(error => console.log(error));
     }
 
-    getToken() {
+    getToken(): string {
         firebase.auth().currentUser.getIdToken().then(
             (tk: string) => this.token = tk
         );
         return this.token;
+    }
+
+    isAuthenticated(): boolean {
+        return this.token != null;
     }
 }
