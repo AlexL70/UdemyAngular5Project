@@ -14,7 +14,7 @@ const recipesRoutes = [
         { path: ':id', component: RecipeDetailComponent},
         { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard]}
     ]}
-]
+];
 
 @NgModule({
     imports: [RouterModule.forChild(recipesRoutes)],
