@@ -19,7 +19,9 @@ export class DataStorageService {
     storeRecipes(): Observable<Object> {
         const token = this.authService.getToken();
         return this.httpClient.put(`https://zlonngrecipebook.firebaseio.com/recipes.json?auth=${token}`,
-            this.recipeService.getRecipes());
+            this.recipeService.getRecipes(), {
+                observe: 'body'
+            });
     }
 
     getRecipes() {
