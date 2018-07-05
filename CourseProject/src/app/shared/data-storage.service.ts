@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
+import { Body } from '@angular/http/src/body';
 
 @Injectable()
 export class DataStorageService {
@@ -15,7 +16,7 @@ export class DataStorageService {
         private authService: AuthService
     ) {}
 
-    storeRecipes(): Observable<Response> {
+    storeRecipes(): Observable<Object> {
         const token = this.authService.getToken();
         return this.httpClient.put(`https://zlonngrecipebook.firebaseio.com/recipes.json?auth=${token}`,
             this.recipeService.getRecipes());
@@ -23,7 +24,10 @@ export class DataStorageService {
 
     getRecipes() {
         const token = this.authService.getToken();
-        this.httpClient.get<Recipe[]>(`https://zlonngrecipebook.firebaseio.com/recipes.json?auth=${token}`)
+        this.httpClient.get<Recipe[]>(`https://zlonngrecipebook.firebaseio.com/recipes.json?auth=${token}`, {
+            observe: 'body',
+            responseType: 'json'
+        })
         .map(
             (recipes) => {
                 for (const recipe of recipes) {
